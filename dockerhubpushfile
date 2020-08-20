@@ -1,0 +1,11 @@
+docker login -u your_dockerhub_username
+docker push <dockerhub_username>/v3test1
+docker ps
+docker stop <containerID> 
+docker images -a
+docker system prune -a
+
+
+
+docker pull <dockerhub_username>/v3test1
+docker images
