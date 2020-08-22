@@ -3,13 +3,9 @@
 **Test 1**
 
 This exercise aims to create an application(NodeJS) on a Docker container (multistage) which displays the version, last commit of code and Description. 
-
 This application code will be deployed using TravisCI (CICD Tool). 
-
 Synk has also been used for the quality and security assurance for the code. 
-
 The code has been checked in the GitHub repository - /https://github/com/SCK59/sck_testv3 for version control. 
-
 The repository has been made Public as per the instructions in the test. 
 
 
@@ -77,29 +73,29 @@ The repository has been made Public as per the instructions in the test.
 
   (This exercise uses a multistage docker)
 
-    To build a Docker Image execute 
-    ```
-    docker build -t local-build-tag --build-arg COMMIT_SHA=test1234 --build-arg PORT_ARG=8080 . 
-    ```
+  To build a Docker Image execute 
+  ```
+  docker build -t local-build-tag --build-arg COMMIT_SHA=test1234 --build-arg PORT_ARG=8080 . 
+  ```
 
-        where, 
-              -t = tag (for easy identification of the image built) 
-              --build args = the arguments supplied for the build, 
-        that is, 
-              COMMIT_SHA which is last git commit.
-              PORT_ARG set the port number (8080 in this case).
+      where, 
+            -t = tag (for easy identification of the image built) 
+            --build args = the arguments supplied for the build, 
+      that is, 
+            COMMIT_SHA which is last git commit.
+            PORT_ARG set the port number (8080 in this case).
 
-    _Please note: A .dockerignore file and .gitignore file have been created and are placed in the repo. These files specify which files and directories in the project directory should not be copied over to the docker container._
+  _Please note: A .dockerignore file and .gitignore file have been created and are placed in the repo. These files specify which files and directories in the project directory should not be copied over to the docker container._
 
-    Run the following command to list the images built: 
-    ```
-    docker images 
-    ```
+  Run the following command to list the images built: 
+  ```
+  docker images 
+  ```
 
-    For Unit test, execute:
-    ```
-    docker build -t run_tests --target tester .
-    ```
+  For Unit test, execute:
+  ```
+  docker build -t run_tests --target tester .
+  ```
 
 4.  Run Docker Container (with application)  
     If build stage is successful and the built image has beeb listed, then run the container. 
@@ -202,18 +198,18 @@ _Using Docker Desktop,_
 
   Pre-requisites:
 
-    - Docker Desktop is installed on the laptop or local machine. 
-      [use URL: https://docs.docker.com/desktop/]
+  - Docker Desktop is installed on the laptop or local machine. 
+    [use URL: https://docs.docker.com/desktop/]
 
-    - Enable Kubernetees in your local Docker Desktop. 
-      [Refer URL if required: https://www.techrepublic.com/article/how-to-add-kubernetes-support-to-docker-desktop]
+  - Enable Kubernetees in your local Docker Desktop. 
+    [Refer URL if required: https://www.techrepublic.com/article/how-to-add-kubernetes-support-to-docker-desktop]
 
-    - Ensure that Docker conatiner is up and running from Test 1 above. Use command, 
-      ```
-      docker ps ---to list conatiners running. 
-      docker start <name> ---to start the docker container if shutdown.
-      ``` 
-    [Please note that this deplyment is using docker image created in test1 and should be available] 
+  - Ensure that Docker conatiner is up and running from Test 1 above. Use command, 
+    ```
+    docker ps ---to list conatiners running. 
+    docker start <name> ---to start the docker container if shutdown.
+    ``` 
+  [Please note that this deplyment is using docker image created in test1 and should be available] 
 
 
   Deployment:
