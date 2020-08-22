@@ -137,10 +137,13 @@ The repository has been made Public as per the instructions in the test.
     Pre-req for Travis CI: 
 
     Follow the steps mentioned here to setup Travis CI with your git repo. 
+    
     https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-github
 
-    Set the below variables for our repository: 
+    Set the below variables for our repository
+
     [refer link: https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings]
+
     1. DOCKER_PASSWORD
     2. DOCKER_USER 
     3. PORT_ARG 
@@ -173,15 +176,10 @@ The repository has been made Public as per the instructions in the test.
 
 **Risks and Future enhancements**
 
-    1. The CI pipeline has unencrypte password being stored in the home directory. 
-    The encrypted keys for DOCKER_PASSWORD and DOCKER_USER should be used.
-
-    2. The docker container can potentially run more than just the nodejs application. 
-    To prevent this we can use dumb-init which always uses PID 1 for the application it starts. This can avoid multiple processes in a single container.
-
+    1. The CI pipeline has unencrypte password being stored in the home directory. The encrypted keys for DOCKER_PASSWORD and DOCKER_USER should be used.
+    2. The docker container can potentially run more than just the nodejs application. To prevent this we can use dumb-init which always uses PID 1 for the application it starts. This can avoid multiple processes in a single container.
     3. The application is not secure and once deployed anybody can access the api /version. 
-
-    4. The application is run as non-root user. This prevents risks associated with root user access,however, a  secure service account should be used for deployment. 
+    4. The application is run as non-root user. This prevents risks associated with root user access,however, a secure service account should be used for deployment. 
 
 
 
@@ -190,7 +188,9 @@ The repository has been made Public as per the instructions in the test.
 This exercise aims to create a Kubernetes (k8s) manifest for application to be deployable on K8s.
 
 _Using Docker Desktop,_
-  The files in repo for this deployment are:
+
+  The files in repo for this deployment are
+
     * k8test2_nmspc.yaml - This YAML file creats a new namespace 'technical-test'. 
     * k8test2.yaml       - This YAML file will deploy application in namespace created. 
 
@@ -247,15 +247,18 @@ Deployment:
 
 
 
-_Using Google Cloud with Kubernetes, _
+_Using Google Cloud with Kubernetes_
+
   Pre-requisites:
+
     - GCP Login
     - A functional setup, i.e., Cluster exists and IAM is setup. 
     - Github account (created in test 1 to use files from repository)
 
   Files in repo for the same:
+
     1. cloudbuild.yaml
     2. cloudbuild-delivery.yaml
     3. v3test2k82.yaml
+
   These files will be used in google cloud for cloud build, deplyment.
-  
