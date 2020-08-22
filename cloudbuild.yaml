@@ -13,8 +13,7 @@ steps:
       - '--build-arg'
       - 'PORT_ARG=8080'
     
-    # push image to Container Registry
-    # PROJECT_ID and SHORT_SHA variables are automatically replaced by CloudBuild
+    # push image to Container Registry. PROJECT_ID and SHORT_SHA variables are automatically replaced by CloudBuild
     - name: 'gcr.io/cloud-builders/docker'
       id: Push
       args:
