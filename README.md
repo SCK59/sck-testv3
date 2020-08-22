@@ -171,15 +171,17 @@ The repository has been made Public as per the instructions in the test.
     Test on browser using: http://localhost/version
 
 
-**Risks and Future enhancements**: 
-    1. The CI pipeline has unencrypte password being stored in the home directory. The encrypted keys for DOCKER_PASSWORD and DOCKER_USER should be used.
+**Risks and Future enhancements**
+
+    1. The CI pipeline has unencrypte password being stored in the home directory. 
+    The encrypted keys for DOCKER_PASSWORD and DOCKER_USER should be used.
 
     2. The docker container can potentially run more than just the nodejs application. 
-        To prevent this we can use dumb-init which always uses PID 1 for the application it starts. This can avoid multiple processes in a single container.
+    To prevent this we can use dumb-init which always uses PID 1 for the application it starts. This can avoid multiple processes in a single container.
 
     3. The application is not secure and once deployed anybody can access the api /version. 
 
-    4. The application is run as non-root user. This prevents risks associated with root user access, however, a    secure service account should be used for deployment. 
+    4. The application is run as non-root user. This prevents risks associated with root user access,however, a  secure service account should be used for deployment. 
 
 
 
@@ -189,9 +191,7 @@ This exercise aims to create a Kubernetes (k8s) manifest for application to be d
 
 _Using Docker Desktop,_
   The files in repo for this deployment are:
-
-    * k8test2_nmspc.yaml - This YAML file creats a new namespace "technical-test". 
-
+    * k8test2_nmspc.yaml - This YAML file creats a new namespace 'technical-test'. 
     * k8test2.yaml       - This YAML file will deploy application in namespace created. 
 
 
@@ -230,10 +230,8 @@ Deployment:
     ```
     kubectl apply -f k8test2_nmspc.yaml -f k8test2.yaml --recursive
     ```
-
     where,
         -f          = the file names to be deployed or created.
-        
         --recursive = to ensure the files created in that order. 
         [Namespace should be created prior to being used in Deployment & Service]
 
@@ -260,9 +258,4 @@ _Using Google Cloud with Kubernetes, _
     2. cloudbuild-delivery.yaml
     3. v3test2k82.yaml
   These files will be used in google cloud for cloud build, deplyment.
-
-
-
- 
-
-
+  
