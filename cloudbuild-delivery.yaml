@@ -3,13 +3,9 @@ steps:
     - name: 'gcr.io/cloud-builders/kubectl'
       id: Deploy
       args:
-      - 'create'
-      - '-f'
-      - 'v3test2_k8s_namespace.yaml'
       - 'apply'
       - '-f'
       - 'v3test2_k8s.yaml'
-      - '--recursive'
       env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=<clustername>-cluster'
