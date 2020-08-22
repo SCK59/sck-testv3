@@ -27,10 +27,12 @@ The repository has been made Public as per the instructions in the test.
     npm version patch ```
   * Minor release -- Increments the second digit for bug fixes and small enhancements [backward compatible].
     ```
-    npm version minor  ```    
+    npm version minor  
+    ```    
   * Major relase -- Increments the first digit (sets second and third digit to zero) for major upgrades, new features which may not have backward compatibility.
     ```
-    npm version major ``` 
+    npm version major 
+    ``` 
 
 
 **Execution and Deployment Steps**
@@ -52,6 +54,7 @@ The repository has been made Public as per the instructions in the test.
       Login to any browser and go to URL: http://localhost:8081/version 
 
     This will display 3 application reqiurements as follows: 
+
         1. Version          : Read from package.json file as version.
         2. Last commit SHA  : Read from the metadata file during runtime as sha.
         3. Description      : Read from package.json as description.
@@ -60,7 +63,8 @@ The repository has been made Public as per the instructions in the test.
     To run a Unit Test
       - Execute the follwoing command to run a unit test after the application is started. 
         ```
-        npm test```
+        npm test
+        ```
       - To run security tests we need to install and authenticate snyk : https://snyk.io/test/
     
  
@@ -68,7 +72,9 @@ The repository has been made Public as per the instructions in the test.
    [This exercise uses a multistage docker.]
 
     To build a Docker Image execute: 
-    ```docker build -t local-build-tag --build-arg COMMIT_SHA=test1234 --build-arg PORT_ARG=8080 . ```
+    ```
+    docker build -t local-build-tag --build-arg COMMIT_SHA=test1234 --build-arg PORT_ARG=8080 . 
+    ```
         where, 
               -t = tag (for easy identification of the image built) 
               --build args = the arguments supplied for the build, 
@@ -76,13 +82,17 @@ The repository has been made Public as per the instructions in the test.
               COMMIT_SHA which is last git commit.
               PORT_ARG set the port number (8080 in this case).
 
-  _  Please note: A .dockerignore file and .gitignore file have been created and are placed in the repo. These files specify which files and directories in the project directory should not be copied over to the docker container._
+    _Please note: A .dockerignore file and .gitignore file have been created and are placed in the repo. These files specify which files and directories in the project directory should not be copied over to the docker container._
 
     Run the following command to list the images built: 
-    ```docker images ```
+    ```
+    docker images 
+    ```
 
-    For Unit test, execute: 
-    ```docker build -t run_tests --target tester .```
+    For Unit test, execute:
+    ```
+    docker build -t run_tests --target tester .
+    ```
 
 4.  Run Docker Container (with application)  
     If build stage is successful and the built image has beeb listed, then run the container. 
@@ -90,14 +100,19 @@ The repository has been made Public as per the instructions in the test.
 
     ```docker run --name v3test1 -p 80:8080 -d local-build-tag ```
     where, 
+
         -p is specified for port binding, i.e., redirects a public port to a private port inside the container.    Port 80 of the machine is mapped to 8080 of the docker image.
+
         -d is for detached mode, i.e, leave the container running in the background. 
+
         --name is the image of the Docker Container. 
         local-build-tag is the image built in step above. 
 
 
     Run the following command to check the status of the docker image , i.e., if it is running or not. 
-    ```docker ps ```
+    ```
+    docker ps 
+    ```
 
     Check Application is up and running. Open any browser and type: 
     http://localhost/version
@@ -116,7 +131,7 @@ The repository has been made Public as per the instructions in the test.
 6. Setup and usage of CI tool (Travis CI) 
 
     Pre-req for Travis CI: 
-    - Follow the steps mentioned here to setup Travis CI with your git repo. 
+    Follow the steps mentioned here to setup Travis CI with your git repo. 
     https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-github
     Set the below variables for our repository: 
     [refer link: https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings]
@@ -126,16 +141,20 @@ The repository has been made Public as per the instructions in the test.
     4. PROJECT 
     5. SNYK_TOKEN 
  
-  This repo contains a .travis.yml file which is must for the deployment. The file contains:
-    * First section, which set the language(nodejs) and service (docker) used.
-    * Second section, to setup pre-steps and environment which include install packages, run a unit test for docker and snyk. 
-    * Third section, includes env setup, execute scripts to build docker image and tag using commit sha followed by synk tests. 
-    * Final section, tags and pushes the image to dockerhub.
+    This repo contains a .travis.yml file which is must for the deployment. The file contains:
+    
+      * First section, which set the language(nodejs) and service (docker) used.
+
+      * Second section, to setup pre-steps and environment which include install packages, run a unit test for docker and snyk. 
+
+      * Third section, includes env setup, execute scripts to build docker image and tag using commit sha followed by synk tests. 
+
+      * Final section, tags and pushes the image to dockerhub.
 
 
-  To trigger a build we need to commit and push to this repo. Travis-CI will automatically trigger a build and push the image to docker hub using the login credentials provided in env variables. 
+    To trigger a build we need to commit and push to this repo. Travis-CI will automatically trigger a build and push the image to docker hub using the login credentials provided in env variables. 
 
-  Docker image versioning is handled by CI pipeline which tags the images using the first 6 characters of the git commit sha. It can be changed to use the pipeline build number by making some changes to travis.yml file. To acheive this replace $COMMIT in the file with $TRAVIS_BUILD_NUMBER.
+    Docker image versioning is handled by CI pipeline which tags the images using the first 6 characters of the git commit sha. It can be changed to use the pipeline build number by making some changes to travis.yml file. To acheive this replace $COMMIT in the file with $TRAVIS_BUILD_NUMBER.
 
 7. Subsequent use of Docker Image. 
     Execute the follwings steps to extract the image from docker hub and run app on local machine: 
