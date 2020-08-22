@@ -8,7 +8,7 @@ The code has been checked in the GitHub repository - /https://github/com/SCK59/s
 The repository has been made Public as per the instructions in the test. 
 
 
-**Pre-requisites :**
+**Pre-requisites**
 * Download and install NodeJS from node downloads. The current LTS version is 12.18.2. 
 * Download and install Docker Desktop.
 * A GitHub account
@@ -18,18 +18,22 @@ The repository has been made Public as per the instructions in the test.
 * Note: TravisCI, Synk both require a GitHub account and the one created above can be used. 
 
 
-**Application version: **
+**Application version**
+
 3 part versioning approach (X.X.X) is followed for application. 'Version' in package.json controls the versioning in node package. 
 
   * Patch release -- Increments the third digit for security patches etc [backward compatible].
-    ``` npm version patch ```
+    ``` 
+    npm version patch ```
   * Minor release -- Increments the second digit for bug fixes and small enhancements [backward compatible].
-    ```npm version minor  ```    
+    ```
+    npm version minor  ```    
   * Major relase -- Increments the first digit (sets second and third digit to zero) for major upgrades, new features which may not have backward compatibility.
-    ```npm version major ``` 
+    ```
+    npm version major ``` 
 
 
-**Execution and Deployment Steps: **
+**Execution and Deployment Steps**
 1. Clone the git repo
     - Login to local machine and directory where repo should be downloaded.
     - Execute the following command: 
@@ -39,10 +43,13 @@ The repository has been made Public as per the instructions in the test.
     This steps ensures that application is created and running as expected (without Docker)
     - Install necessary packages
     - Start the application 
-    ```npm install```
-    ```npm start ```
-    - Check application 
-    Login to any browser and go to URL: http://localhost:8081/version 
+      ```
+
+      npm install
+      npm start 
+      ```
+    - Check application
+      Login to any browser and go to URL: http://localhost:8081/version 
 
     This will display 3 application reqiurements as follows: 
         1. Version          : Read from package.json file as version.
@@ -52,7 +59,8 @@ The repository has been made Public as per the instructions in the test.
 
     To run a Unit Test
       - Execute the follwoing command to run a unit test after the application is started. 
-        ```npm test```
+        ```
+        npm test```
       - To run security tests we need to install and authenticate snyk : https://snyk.io/test/
     
  
