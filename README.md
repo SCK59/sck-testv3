@@ -243,7 +243,7 @@ _Using Docker Desktop,_
         ```
 
   3. Check application
-      Open any browser and visit application on Port listed in services above as 'localhost:<port>'.
+      Open any browser and visit application on Port listed in services above as 'localhost:portnumber'.
 
 
 
