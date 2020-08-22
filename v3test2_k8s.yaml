@@ -1,12 +1,5 @@
-kind: metadata
-apiVersion: v1
-metadata:
-  name: technical_test
-  labels:
-     app: v3t2k8s
----
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: v3t2k8s 
   namespace: technical_test
@@ -31,7 +24,8 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: technical_test 
+  name: v3t2k8s
+  namespace: technical_test
 spec:
   selector:
     app: v3t2k8s 

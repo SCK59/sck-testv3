@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Namespace
+metadata:
+  name: technical_test
+  labels:
+    name: technical_test
