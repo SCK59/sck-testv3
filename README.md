@@ -4,12 +4,12 @@
 
 This exercise aims to create an application(NodeJS) on a Docker container (multistage) which displays the version, last commit of code and Description. 
 This application code will be deployed using TravisCI (CICD Tool). 
-Synk has also been used for the quality and security assurance for the code. 
+Synk has also been used for quality and security assurance for the code. 
 The code has been checked in the GitHub repository - /https://github/com/SCK59/sck_testv3 for version control. 
-The repository has been made Public as per the instructions in the test. 
+The repository has 'Public access' as per the instructions provided. 
 
 
-**Pre-requisites**
+**Pre-Requisites**
 * Download and install NodeJS from node downloads. The current LTS version is 12.18.2. 
 * Download and install Docker Desktop.
 * A GitHub account
@@ -19,7 +19,7 @@ The repository has been made Public as per the instructions in the test.
 * Note: TravisCI, Synk both require a GitHub account and the one created above can be used. 
 
 
-**Application version**
+**Application Version**
 
 3 part versioning approach (X.X.X) is followed for application. 'Version' in package.json controls the versioning in node package. 
 
@@ -37,7 +37,7 @@ The repository has been made Public as per the instructions in the test.
     ``` 
 
 
-**Execution and Deployment Steps**
+**Deployment Steps**
 1. Clone the git repo
     - Login to local machine and directory where repo should be downloaded.
     - Execute the following command: 
@@ -195,7 +195,7 @@ _Using Docker Desktop,_
       * k8test2.yaml       - This YAML file will deploy application in namespace created. 
 
 
-  Pre-requisites
+  Pre-Requisites:
 
   * Docker Desktop is installed on the laptop or local machine. 
   [use URL: https://docs.docker.com/desktop/]
