@@ -71,19 +71,18 @@ The repository has been made Public as per the instructions in the test.
 
 3. Docker Build 
 
-  (This exercise uses a multistage docker)
+  To build a Docker Image execute the following: 
 
-  To build a Docker Image execute 
   ```
   docker build -t local-build-tag --build-arg COMMIT_SHA=test1234 --build-arg PORT_ARG=8080 . 
   ```
 
-      where, 
-            -t = tag (for easy identification of the image built) 
-            --build args = the arguments supplied for the build, 
-      that is, 
-            COMMIT_SHA which is last git commit.
-            PORT_ARG set the port number (8080 in this case).
+    where, 
+          -t = tag (for easy identification of the image built) 
+          --build args = the arguments supplied for the build, 
+    that is, 
+          COMMIT_SHA which is last git commit.
+          PORT_ARG set the port number (8080 in this case).
 
   _Please note: A .dockerignore file and .gitignore file have been created and are placed in the repo. These files specify which files and directories in the project directory should not be copied over to the docker container._
 
@@ -196,15 +195,15 @@ _Using Docker Desktop,_
       * k8test2.yaml       - This YAML file will deploy application in namespace created. 
 
 
-  Pre-requisites:
+  Pre-requisites
 
-  - Docker Desktop is installed on the laptop or local machine. 
-    [use URL: https://docs.docker.com/desktop/]
+  * Docker Desktop is installed on the laptop or local machine. 
+  [use URL: https://docs.docker.com/desktop/]
 
-  - Enable Kubernetees in your local Docker Desktop. 
-    [Refer URL if required: https://www.techrepublic.com/article/how-to-add-kubernetes-support-to-docker-desktop]
+  * Enable Kubernetees in your local Docker Desktop. 
+  [Refer URL if required: https://www.techrepublic.com/article/how-to-add-kubernetes-support-to-docker-desktop]
 
-  - Ensure that Docker conatiner is up and running from Test 1 above. Use command, 
+  * Ensure that Docker conatiner is up and running from Test 1 above. Use command, 
     ```
     docker ps ---to list conatiners running. 
     docker start <name> ---to start the docker container if shutdown.
