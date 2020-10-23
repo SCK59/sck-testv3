@@ -6,6 +6,7 @@ services:
 before_script:
     - docker build -t run_tests --target tester .
     - npm install -g snyk
+    - synk auth
     - snyk config set api=$SNYK_TOKEN
     - snyk test
 env:
