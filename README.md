@@ -162,7 +162,8 @@ The repository has 'Public access' as per the instructions provided.
 
 
     To trigger a build we need to commit and push to this repo. Travis-CI will automatically trigger a build and push the image to docker hub using the login credentials provided in env variables. 
-    Build status
+    
+    ** Build status
     [![Build Status](https://travis-ci.com/SCK59/sck-testv3.svg?branch=master)](https://travis-ci.com/SCK59/sck-testv3)
     
 
